@@ -7,11 +7,11 @@ except ImportError:
     from urllib2 import urlopen
 
 import certifi
+import datetime
 import json
 import os
 import openpyxl
 import pyodbc
-import yfinance as yf
 import pandas as pd
 import csv
 from pandas_datareader import data as pdr
@@ -65,7 +65,7 @@ for i in range(2, m_row+1):
         pass
 
     today = datetime.date.today()
-    url = ("https://financialmodelingprep.com/api/v3/historical-price-full/" + ticker + "?limit=10&from=2025-02-18&to="+str(today)+"&apikey=aa91b6fd2bd83cac2f3364e9f4d07e86")
+    url = ("https://financialmodelingprep.com/api/v3/historical-price-full/" + ticker + "?limit=10&from=2025-02-18&to="+str(today)+"&apikey=entertheapikey")
     get_jsonparsed_data(url)
 
 print(x.strftime("Prices Fetched"))
