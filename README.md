@@ -1,2 +1,3 @@
-Morning.xlsx consist of list of tickers or list of company symbols. 
-Price_FMP.py provides prices for current prices and previous day prices with their dates. 
+Finanical Prep Modelling API is used to get financial data. 
+Prices_FMP is for retrieving prices (current day and previous day)
+
