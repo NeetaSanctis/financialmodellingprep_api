@@ -15,7 +15,6 @@ import pyodbc
 import pandas as pd
 import csv
 from pandas_datareader import data as pdr
-yf.pdr_override() # <== that's all it takes :-)
 import warnings
 warnings.filterwarnings("ignore")
 p = os.path.join (os.path.expanduser ("~"), "desktop")
@@ -43,19 +42,19 @@ for i in range(2, m_row+1):
             c4.value = date1[1].strip()
             
             close1= f[5].split(':')   
-            c4 = sheet_obj.cell(row = i, column = 6)
+            c4 = sheet_obj.cell(row = i, column = 4)
             c4.value = close1[1]
 
             o = f[15].split('{')
             date2= o[1].split(':')
-            c4 = sheet_obj.cell(row = i, column = 7)
+            c4 = sheet_obj.cell(row = i, column = 5)
             invalid_chars = '<>:"/\\|?*'
             for char in invalid_chars:
                 date2[1] = date2[1].replace(char, '')            
             c4.value = date2[1].strip()            
 
             close2= f[19].split(':')   
-            c4 = sheet_obj.cell(row = i, column = 10)
+            c4 = sheet_obj.cell(row = i, column = 6)
             c4.value = close2[1]
            
             wb_obj.save(path)
@@ -65,7 +64,7 @@ for i in range(2, m_row+1):
         pass
 
     today = datetime.date.today()
-    url = ("https://financialmodelingprep.com/api/v3/historical-price-full/" + ticker + "?limit=10&from=2025-02-18&to="+str(today)+"&apikey=entertheapikey")
+    url = ("https://financialmodelingprep.com/api/v3/historical-price-full/" + ticker + "?limit=10&from=2025-02-18&to="+str(today)+"&apikey=enteryourapikey")
     get_jsonparsed_data(url)
 
-print(x.strftime("Prices Fetched"))
+print("Prices Fetched")
